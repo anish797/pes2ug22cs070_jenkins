@@ -5,28 +5,22 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    echo 'Compiling hello.cpp...'
-                    sh '''
-                    g++ -o pes2ug22cs070-1 main/hello.cpp
-                    '''
+                    sh 'g++ -o pes2ug22cs070-1 main.cpp'
                 }
             }
         }
+
         stage('Test') {
             steps {
                 script {
-                    echo 'Running hello.cpp output...'
-                    sh '''
-                    ./pes2ug22cs070-1
-                    '''
+                    sh './pes2ug22cs070-1'
                 }
             }
         }
+
         stage('Deploy') {
             steps {
-                script {
-                    echo 'Deploy stage placeholder'
-                }
+                echo 'Deploying the application...'
             }
         }
     }
