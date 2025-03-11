@@ -5,7 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'g++ -o pes2ug22cs070-1 main.cpp'
+                    // Intentional error: using a non-existent compiler
+                    sh 'nonexistent_compiler -o pes2ug22cs070-1 main.cpp'
                 }
             }
         }
@@ -13,6 +14,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
+                    // Running the compiled executable to print output
                     sh './pes2ug22cs070-1'
                 }
             }
@@ -21,6 +23,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying the application...'
+                // Add your deployment steps here if applicable
             }
         }
     }
